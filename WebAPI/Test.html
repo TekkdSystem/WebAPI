@@ -1,0 +1,51 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Teste</title>
+    <script src="Scripts/jquery-3.3.1.min.js"></script>
+</head>
+<body>
+
+
+    <input type="text" id="deleteID" />
+    <button onclick="del()">Test delete</button>
+    <button onclick="update()">Test update</button>
+
+    <script type="text/javascript">
+
+        function del() {
+            $.ajax({
+                type: "DELETE",
+                dataType: "json",
+                url: "api/Treatment/7",
+                success: function (result) {
+                    console.info(result);
+                }
+            });
+        }
+
+        function update() {
+            var changeTrat = {
+                "TreatmentID":5,
+                "TreatmentMode": "Crlos",
+                "TreatmentDescription": "sss",
+                "TreatmentMedication":"sswww"
+            }
+
+            $.ajax({
+                type: "PUT",
+                dataType: "json",
+                url: "api/Treatment/5",
+                data: changeTrat,
+                success: function (result) {
+                    console.info(result);
+                }
+            });
+        }
+
+
+
+    </script>
+</body>
+</html>
